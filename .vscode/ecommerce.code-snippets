@@ -1,0 +1,32 @@
+{
+  "Create styleProvider template": {
+    "prefix": ["styleProvider"],
+    "body": [
+      "import {StyleSheet} from 'react-native';",
+      "import {ss} from 'src/theme';",
+      "import {Theme} from 'src/types/theme';",
+      "",
+      "export const styleProvider = (theme: Theme) => {",
+      "  return StyleSheet.create({",
+      "",
+      "  });",
+      "};"
+    ],
+    "description": "Create styleProvider template"
+  },
+  "Typescript React Functional Component": {
+    "prefix": "fc",
+    "body": [
+      "import React from 'react'",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {",
+      "$1",
+      "}",
+      "",
+      "export const $TM_FILENAME_BASE: React.FC<${TM_FILENAME_BASE}Props> = ({$2}) => {",
+      "\t\treturn ($3);",
+      "}"
+    ],
+    "description": "Typescript React Function Component"
+  }
+}
