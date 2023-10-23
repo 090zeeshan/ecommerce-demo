@@ -1,10 +1,11 @@
 This is a demo ecommerce application. It demonstrates the usage of:
 
-- Typescript
-- RTK Query
-- Custom Theme Implementation
+- RTK Query for api calls
+- Redux for state management
+- Custom theme implementation
 - Bottom Tabs Navigation
 - MVVM architecture pattern
+- Unit testing for business logic using react-native-testing-library
 
 # Getting Started
 
@@ -51,3 +52,13 @@ yarn ios
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+
+# Run Unit Tests
+
+```bash
+# using npm
+npm test
+
+# OR using Yarn
+yarn test
+```
