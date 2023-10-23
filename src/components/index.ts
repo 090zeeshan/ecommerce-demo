@@ -4,4 +4,3 @@ export {Separator} from './separator/Separator';
 export {TextButton} from './text-button/TextButton';
 export {CartToggleButton} from './cart-toggle-button/CartToggleButton';
 export {ErrorBoundary} from './error-boundary/ErrorBoundary';
-export {TestWrapper} from './test-wrapper/TestWrapper';

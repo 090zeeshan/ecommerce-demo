@@ -21,7 +21,7 @@ export const ProductList: React.FC<
         renderItem={({item}) => (
           <ProductListItem
             product={item}
-            addToCart={!(item.id in vm.cart)}
+            addToCart={!vm.isAddedToCart(item.id)}
             onAddToCartPress={vm.onAddToCartPress}
             onRemoveFromCartPress={vm.onRemoveFromCartPress}
           />

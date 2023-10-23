@@ -20,12 +20,16 @@ export const useProductListViewModel = () => {
     refetch();
   };
 
+  const isAddedToCart = (id: number) => {
+    return !!cart[id];
+  };
+
   return {
-    onAddToCartPress,
-    onRemoveFromCartPress,
-    cart,
     products: data,
     isFetchingProducts: isFetching,
+    onAddToCartPress,
+    onRemoveFromCartPress,
     onRefresh,
+    isAddedToCart,
   };
 };
