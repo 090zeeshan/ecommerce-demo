@@ -2,7 +2,12 @@ import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 import {CartItem} from 'src/types/model/cart';
 import {Product} from 'src/types/model/product';
 
-const initialState: {products: Record<number, CartItem>; totalPrice: number} = {
+interface CartState {
+  products: Record<number, CartItem>;
+  totalPrice: number;
+}
+
+const initialState: CartState = {
   products: {},
   totalPrice: 0,
 };

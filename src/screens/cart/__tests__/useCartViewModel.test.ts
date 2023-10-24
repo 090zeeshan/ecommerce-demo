@@ -5,6 +5,7 @@ import {act, renderHook} from '@testing-library/react-native';
 import {getWrapper} from 'src/utils/test-utils';
 import {configureAppStore} from 'src/store';
 import {AnyAction, Store} from '@reduxjs/toolkit';
+import {RootState} from 'src/types/store';
 
 const testProduct1 = {
   id: 1,
@@ -22,7 +23,7 @@ const testProduct2 = {
 };
 
 describe('useCartViewModel', () => {
-  let store: Store<any, AnyAction>;
+  let store: Store<RootState, AnyAction>;
   beforeEach(() => {
     store = configureAppStore();
     const {result, unmount} = renderHook(() => useProductListViewModel(), {
