@@ -2,7 +2,7 @@ import {http, HttpResponse} from 'msw';
 import {API_BASE_URL} from 'src/constants/api';
 
 export const handlers = [
-  http.get(API_BASE_URL + 'products', () => {
+  http.get(`${API_BASE_URL}products`, () => {
     return HttpResponse.json([
       {
         id: 1,
