@@ -16,13 +16,16 @@ export const useProductListViewModel = () => {
     dispatch(CartActions.removeProduct(product.id));
   }, []);
 
-  const onRefresh = () => {
+  const onRefresh = useCallback(() => {
     refetch();
-  };
+  }, [refetch]);
 
-  const isAddedToCart = (id: number) => {
-    return !!cart[id];
-  };
+  const isAddedToCart = useCallback(
+    (id: number) => {
+      return !!cart[id];
+    },
+    [cart],
+  );
 
   return {
     products: data,
