@@ -1,6 +1,5 @@
 import 'react-native';
 import {useCartViewModel} from '../useCartViewModel';
-import {useProductListViewModel} from 'src/screens/product-list/useProductListViewModel';
 import {act, renderHook} from '@testing-library/react-native';
 import {getWrapper} from 'src/utils/test-utils';
 import {configureAppStore} from 'src/store';
@@ -22,18 +21,36 @@ const testProduct2 = {
   img: 'https://cdn-img.prettylittlething.com/3/6/5/a/365a5d1dce6a2b77b564379b302c9d83afccf33b_cmd2051_1.jpg?imwidth=1024',
 };
 
+const initialCartState = {
+  products: {
+    '1': {
+      product: {
+        id: 1,
+        colour: 'Black',
+        name: 'Black Sheet Strappy Textured Glitter Bodycon Dress',
+        price: 10,
+        img: 'http://cdn-img.prettylittlething.com/9/0/a/a/90aa90903a135ee59594f47c7685aa7ef3046e44_cly8063_1.jpg?imwidth=1024',
+      },
+      count: 1,
+    },
+    '2': {
+      product: {
+        id: 2,
+        colour: 'Stone',
+        name: 'Stone Ribbed Strappy Cut Out Detail Bodycon Dress',
+        price: 4,
+        img: 'https://cdn-img.prettylittlething.com/3/6/5/a/365a5d1dce6a2b77b564379b302c9d83afccf33b_cmd2051_1.jpg?imwidth=1024',
+      },
+      count: 1,
+    },
+  },
+  totalPrice: 14,
+};
+
 describe('useCartViewModel', () => {
   let store: Store<RootState, AnyAction>;
   beforeEach(() => {
-    store = configureAppStore();
-    const {result, unmount} = renderHook(() => useProductListViewModel(), {
-      wrapper: getWrapper(store),
-    });
-    act(() => {
-      result.current.onAddToCartPress(testProduct1);
-      result.current.onAddToCartPress(testProduct2);
-    });
-    unmount();
+    store = configureAppStore({cart: initialCartState});
   });
 
   it('should return correct cart products', () => {
